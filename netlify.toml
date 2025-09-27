@@ -1,0 +1,30 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NODE_ENV = "production"
+
+# إعدادات SPA لإعادة التوجيه (مهم لـ React Router)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# إعدادات الأمان والأقسام
+[headers]
+  # للأصول الثابتة
+  [[headers.values]]
+    for = "/*"
+    [headers.values.values]
+      X-Frame-Options = "DENY"
+      X-XSS-Protection = "1; mode=block"
+      X-Content-Type-Options = "nosniff"
+
+  # للملفات المهمة
+  [[headers.values]]
+    for = "/*.js"
+    [headers.values.values]
+      Cache-Control = "public, max-age=31536000, immutable"
