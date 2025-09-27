@@ -77,7 +77,7 @@ export default function Log() {
 
     if (!user) {
       try {
-        const res = await axios.post("https://oneprodex3.up.railway.app/api/auth/login", { email, password });
+        const res = await axios.post("https://oneprodex10.up.railway.app/api/auth/login", { email, password });
         user = res.data.user;
       } catch (err) {
         alert("Email or password incorrect");
@@ -100,7 +100,7 @@ export default function Log() {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "https://oneprodex3.up.railway.app/api/auth/google";
+    window.location.href = "https://oneprodex10.up.railway.app/api/auth/google";
   };
 
   // ---- BACKGROUND SPLIT DESIGN ----
