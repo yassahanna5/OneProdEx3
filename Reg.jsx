@@ -26,7 +26,7 @@ export default function Reg() {
     localStorage.setItem("users", JSON.stringify(users));
 
     try {
-      await axios.post("https://oneprodex.up.railway.app/api/auth/register", newUser);
+      await axios.post("https://oneprodex10.up.railway.app/api/auth/register", newUser);
     } catch (err) {
       console.log("MongoDB API error:", err);
     }
